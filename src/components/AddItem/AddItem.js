@@ -9,6 +9,7 @@ class AddItem extends Component {
         textInput: '',
         numberInput: this.minNumber,
         checkboxInput: false,
+        errorMessage: '',
     }
 
     handleTextChange = (e) => {
@@ -32,6 +33,37 @@ class AddItem extends Component {
     handleSubmitAddItem = (e) => {
         e.preventDefault();
         console.log('Added item');
+
+        const { textInput, numberInput, checkboxInput } = this.state;
+
+
+        if (textInput.length >= 3) {
+            const func = this.props.add(textInput, numberInput, checkboxInput);
+
+            if (func) {
+                this.setState({
+                    textInput: '',
+                    numberInput: this.minNumber,
+                    checkboxInput: false,
+                    errorMessage: '',
+                })
+
+            }
+        } else {
+            this.setState({
+                errorMessage: 'Name was too short!',
+            })
+        }
+
+    }
+
+    handleReset = () => {
+        this.setState({
+            textInput: '',
+            numberInput: this.minNumber,
+            checkboxInput: false,
+            errorMessage: '',
+        });
     }
 
 
@@ -40,10 +72,11 @@ class AddItem extends Component {
         return (
             <>
                 <h2>Add new item</h2>
-                <form onSubmit={this.handleSubmitAddItem}>
+                <form onSubmit={this.handleSubmitAddItem} noValidate>
                     <label htmlFor="name">
                         Name
                         <input type="text" value={this.state.textInput} onChange={this.handleTextChange} />
+                        {this.state.errorMessage && <span>{this.state.errorMessage}</span>}
                     </label>
                     <label htmlFor="quantity">
                         Quantity
@@ -55,7 +88,7 @@ class AddItem extends Component {
                     </label>
                     <button>Add to list</button>
                 </form>
-                <button>Cancel</button>
+                <button onClick={this.handleReset}>Reset</button>
             </>
 
         )

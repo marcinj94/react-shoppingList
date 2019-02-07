@@ -5,18 +5,55 @@ import AddItem from './AddItem/AddItem';
 
 class App extends Component {
 
-  // state = {
-  //   shoppingList: [
-  //     {
-  //       id: 0,
-  //       name: '',
-  //       quantity: 0,
-  //       active: true,
-  //       finishDate: null,
-  //     }
-  //   ]
-  // }
+  idCounter = 4;
 
+  state = {
+    shoppingList: [
+      {
+        id: 0,
+        name: 'Onions',
+        quantity: 3,
+        important: false,
+        active: true,
+        finishDate: null,
+      },
+      {
+        id: 1,
+        name: 'Fish',
+        quantity: 2,
+        important: false,
+        active: true,
+        finishDate: null,
+      },
+      {
+        id: 2,
+        name: 'Ketchup',
+        quantity: 1,
+        important: false,
+        active: true,
+        finishDate: null,
+      },
+    ]
+  }
+
+  addItem = (name, quantity, important) => {
+    let item = {
+      id: this.idCounter,
+      name,
+      quantity,
+      important,
+      active: true,
+      finishDate: null,
+    }
+    console.log(item);
+
+    this.setState(prevState => ({
+      shoppingList: [...prevState.shoppingList, item]
+    }));
+
+    this.idCounter++;
+    return true;
+  }
 
   render() {
 
@@ -24,7 +61,9 @@ class App extends Component {
       <>
         <Header />
 
-        <AddItem />
+        <AddItem
+          add={this.addItem}
+        />
       </>
 
 
