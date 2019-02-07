@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import Header from './Header/Header';
+import AddItem from './AddItem/AddItem';
 
 class App extends Component {
+
+  // state = {
+  //   shoppingList: [
+  //     {
+  //       id: 0,
+  //       name: '',
+  //       quantity: 0,
+  //       active: true,
+  //       finishDate: null,
+  //     }
+  //   ]
+  // }
+
+
   render() {
+
     return (
       <>
         <Header />
+
+        <AddItem />
       </>
 
 
