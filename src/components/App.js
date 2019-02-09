@@ -2,38 +2,14 @@ import React, { Component } from 'react';
 
 import Header from './Header/Header';
 import AddItem from './AddItem/AddItem';
+import ShoppingList from './ShoppingList/ShoppingList';
 
 class App extends Component {
 
-  idCounter = 4;
+  idCounter = 0;
 
   state = {
-    shoppingList: [
-      {
-        id: 0,
-        name: 'Onions',
-        quantity: 3,
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 1,
-        name: 'Fish',
-        quantity: 2,
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 2,
-        name: 'Ketchup',
-        quantity: 1,
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-    ]
+    shoppingItems: []
   }
 
   addItem = (name, quantity, important) => {
@@ -48,7 +24,7 @@ class App extends Component {
     console.log(item);
 
     this.setState(prevState => ({
-      shoppingList: [...prevState.shoppingList, item]
+      shoppingItems: [...prevState.shoppingItems, item]
     }));
 
     this.idCounter++;
@@ -63,6 +39,10 @@ class App extends Component {
 
         <AddItem
           add={this.addItem}
+        />
+
+        <ShoppingList
+          shoppingItems={this.state.shoppingItems}
         />
       </>
 

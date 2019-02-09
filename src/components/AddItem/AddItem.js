@@ -89,6 +89,8 @@ class AddItem extends Component {
                     <button>Add to list</button>
                 </form>
                 <button onClick={this.handleReset}>Reset</button>
+
+                <hr />
             </>
 
         )
