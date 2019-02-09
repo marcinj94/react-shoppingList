@@ -5,6 +5,8 @@ import AddItem from './AddItem/AddItem';
 import ShoppingList from './ShoppingList/ShoppingList';
 import BagList from './BagList/BagList';
 
+import './App.css';
+
 class App extends Component {
 
   idCounter = 4;
@@ -73,20 +75,15 @@ class App extends Component {
 
     const shoppingItems = [...this.state.shoppingItems];
 
-    const index = shoppingItems.findIndex(shoppingItem => shoppingItem.id === id);
-
     shoppingItems.forEach(shoppingItem => {
       if (shoppingItem.id === id) {
         shoppingItem.active = false;
         shoppingItem.finishDate = new Date().getTime();
       }
     });
-
     this.setState({
       shoppingItems
     })
-
-    console.log('przeniesiony o indeksie ' + index);
   }
 
   render() {
@@ -99,77 +96,20 @@ class App extends Component {
           add={this.addItem}
         />
 
-        <ShoppingList
-          shoppingItems={this.state.shoppingItems}
-          delete={this.deleteItem}
-          move={this.moveItemToBagList}
-        />
+        <div className="list">
+          <ShoppingList
+            shoppingItems={this.state.shoppingItems}
+            delete={this.deleteItem}
+            move={this.moveItemToBagList}
+          />
 
-        <BagList
-          shoppingItems={this.state.shoppingItems}
-          delete={this.deleteItem}
-        />
+          <BagList
+            shoppingItems={this.state.shoppingItems}
+            delete={this.deleteItem}
+          />
+        </div>
+
       </>
-
-
-      // <div className="App">
-
-      //   <header>
-      //     <h1>React.js - Shopping List</h1>
-      //   </header>
-
-      //   <hr />
-
-      //   <form>
-      //     <label htmlFor="name">Name
-      //       <input type="text" />
-      //     </label>
-      //     <label htmlFor="description">
-      //     </label>
-      //     <label htmlFor="quantity">
-      //       <input type="number" min="1" />
-      //     </label>
-      //     <button>Add to list</button>
-      //     <button>Cancel</button>
-      //   </form>
-
-      //   <hr />
-
-      //   <div className="shopping-list">
-      //     <h2>Shopping list (3) products</h2>
-      //     <ul>
-      //       <li>
-      //         <p>lorem ipsum</p>
-      //         <button>Add to bag</button>
-      //         <button>Delete</button>
-      //       </li>
-      //       <li>
-      //         <p>lorem ipsum</p>
-      //         <button>Add to bag</button>
-      //         <button>Delete</button>
-      //       </li>
-      //       <li>
-      //         <p>lorem ipsum</p>
-      //         <button>Add to bag</button>
-      //         <button>Delete</button>
-      //       </li>
-      //     </ul>
-      //   </div>
-
-      //   <div className="addedToBag">
-      //     <h2>Added to bag (2) products</h2>
-      //     <ul>
-      //       <li>
-      //         <p>lorem ipsum</p>
-      //         <button>Delete</button>
-      //       </li>
-      //       <li>
-      //         <p>lorem ipsum</p>
-      //         <button>Delete</button>
-      //       </li>
-      //     </ul>
-      //   </div>
-      // </div>
     );
   }
 }
