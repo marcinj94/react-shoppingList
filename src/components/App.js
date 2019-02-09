@@ -61,13 +61,32 @@ class App extends Component {
     const shoppingItems = [...this.state.shoppingItems];
     console.log(shoppingItems);
 
-    const index = shoppingItems.findIndex(item => item.id === id);
+    const index = shoppingItems.findIndex(shoppingItem => shoppingItem.id === id);
     shoppingItems.splice(index, 1);
     console.log(shoppingItems);
     this.setState({
       shoppingItems
     })
+  }
 
+  moveItemToBagList = (id) => {
+
+    const shoppingItems = [...this.state.shoppingItems];
+
+    const index = shoppingItems.findIndex(shoppingItem => shoppingItem.id === id);
+
+    shoppingItems.forEach(shoppingItem => {
+      if (shoppingItem.id === id) {
+        shoppingItem.active = false;
+        shoppingItem.finishDate = new Date().getTime();
+      }
+    });
+
+    this.setState({
+      shoppingItems
+    })
+
+    console.log('przeniesiony o indeksie ' + index);
   }
 
   render() {
@@ -83,6 +102,7 @@ class App extends Component {
         <ShoppingList
           shoppingItems={this.state.shoppingItems}
           delete={this.deleteItem}
+          move={this.moveItemToBagList}
         />
 
         <BagList

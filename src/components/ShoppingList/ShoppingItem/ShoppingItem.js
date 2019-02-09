@@ -12,7 +12,7 @@ const ShoppingItem = (props) => {
                 <li key={shoppingItem.id}>
                     <h3>{shoppingItem.name}</h3>
                     <p>Quantity: {shoppingItem.quantity}</p>
-                    <button>Add to bag</button>
+                    <button onClick={props.move.bind(this, shoppingItem.id)}>Add to bag</button>
                     <button onClick={props.delete.bind(this, shoppingItem.id)}>Delete</button>
                 </li>
             )

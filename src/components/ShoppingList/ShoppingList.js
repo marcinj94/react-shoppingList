@@ -15,6 +15,7 @@ const ShoppingList = (props) => {
                 <ShoppingItem
                     shoppingItems={props.shoppingItems}
                     delete={props.delete}
+                    move={props.move}
                 />
             </ul>
 
