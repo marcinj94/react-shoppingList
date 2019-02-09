@@ -3,3 +3,31 @@ li {
     text-align: center;
     border: 2px solid black;
 }
+
+.important {
+    color: rgb(255, 206, 47);
+    font-size: 34px;
+    position: relative;
+}
+
+.important::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    left: 10%;
+    height: 2px;
+    background-color: rgba(173, 255, 47, 0.3);
+}
+
+.important::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    right: 10%;
+    height: 2px;
+    background-color: rgba(173, 255, 47, 0.3);
+}

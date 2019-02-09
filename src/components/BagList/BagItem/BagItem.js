@@ -14,7 +14,7 @@ const BagItem = (props) => {
                     <h3>{shoppingItem.name}</h3>
                     <p>Quantity: {shoppingItem.quantity}</p>
                     <p>Bought: {finishDate}</p>
-                    <button onClick={props.delete}>Delete</button>
+                    <button onClick={props.delete.bind(this, shoppingItem.id)}>Delete</button>
                 </li>
             )
         } else {
