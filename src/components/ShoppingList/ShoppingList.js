@@ -14,9 +14,12 @@ const ShoppingList = (props) => {
             <ul>
                 <ShoppingItem
                     shoppingItems={props.shoppingItems}
+                    delete={props.delete}
                 />
             </ul>
-        </div> : null;
+
+            <hr />
+        </div > : null;
 
 
     return (

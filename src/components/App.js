@@ -3,13 +3,39 @@ import React, { Component } from 'react';
 import Header from './Header/Header';
 import AddItem from './AddItem/AddItem';
 import ShoppingList from './ShoppingList/ShoppingList';
+import BagList from './BagList/BagList';
 
 class App extends Component {
 
-  idCounter = 0;
+  idCounter = 4;
 
   state = {
-    shoppingItems: []
+    shoppingItems: [
+      {
+        id: 0,
+        name: 'Onions',
+        quantity: 3,
+        important: false,
+        active: true,
+        finishDate: null,
+      },
+      {
+        id: 1,
+        name: 'Fish',
+        quantity: 2,
+        important: false,
+        active: false,
+        finishDate: null,
+      },
+      {
+        id: 2,
+        name: 'Ketchup',
+        quantity: 1,
+        important: false,
+        active: true,
+        finishDate: null,
+      },
+    ]
   }
 
   addItem = (name, quantity, important) => {
@@ -31,6 +57,19 @@ class App extends Component {
     return true;
   }
 
+  deleteItem = (id) => {
+    const shoppingItems = [...this.state.shoppingItems];
+    console.log(shoppingItems);
+
+    const index = shoppingItems.findIndex(item => item.id === id);
+    shoppingItems.splice(index, 1);
+    console.log(shoppingItems);
+    this.setState({
+      shoppingItems
+    })
+
+  }
+
   render() {
 
     return (
@@ -43,6 +82,12 @@ class App extends Component {
 
         <ShoppingList
           shoppingItems={this.state.shoppingItems}
+          delete={this.deleteItem}
+        />
+
+        <BagList
+          shoppingItems={this.state.shoppingItems}
+          delete={this.deleteItem}
         />
       </>
 
