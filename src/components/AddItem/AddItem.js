@@ -72,29 +72,27 @@ class AddItem extends Component {
         const formActive = this.props.formActive;
 
         const content = formActive ?
-            <>
 
-                <h2>Add new item</h2>
-                <form onSubmit={this.handleSubmitAddItem} noValidate>
+            <section className="addItem">
+                <h2 className="addItem__title">Add New Item</h2>
+                <form className="form" onSubmit={this.handleSubmitAddItem}>
                     <label htmlFor="name">
-                        Name
-                <input type="text" value={this.state.textInput} onChange={this.handleTextChange} />
-                        {this.state.errorMessage && <span>{this.state.errorMessage}</span>}
+                        Name:
+                        <input type="text" id="name" placeholder="Name" required value={this.state.textInput} onChange={this.handleTextChange} />
+                        {this.state.errorMessage && <span className="error__msg">{this.state.errorMessage}</span>}
                     </label>
                     <label htmlFor="quantity">
-                        Quantity
-                <input type="number" min={this.minNumber} value={this.state.numberInput} onChange={this.handleNumberChange} />
+                        Quantity:
+                        <input type="number" id="number" min={this.minNumber} value={this.state.numberInput} onChange={this.handleNumberChange} />
                     </label>
                     <label htmlFor="important">
                         Important
-                <input type="checkbox" checked={this.state.checkboxInput} onChange={this.handleCheckboxChange} />
+                        <input type="checkbox" id="important" checked={this.state.checkboxInput} onChange={this.handleCheckboxChange} />
                     </label>
-                    <button>Add to list</button>
+                    <button className="form__btn">Add to list</button>
                 </form>
-                <button onClick={this.handleReset}>Reset</button>
-
-                <hr />
-            </>
+                <button className="reset__btn" onClick={this.handleReset}>Reset</button>
+            </section>
             : null;
 
         return (

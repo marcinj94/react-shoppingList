@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background: url(./bg.jpg) center;
+  background-size: cover;
+  background-position: fixed;
+  height: 100vh;
+  color: white;
+}
+
 html {
   font-family: 'Roboto', sans-serif;
 }

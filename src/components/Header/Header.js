@@ -1,6 +1,6 @@
 import React from 'react';
-import './Header.css'
 
+import './Header.css'
 
 const Header = (props) => {
 
@@ -9,7 +9,7 @@ const Header = (props) => {
     return (
         <header className="header">
             <h1 className="header__title">React.js Shopping List</h1>
-            <button onClick={props.click}>{textContent}</button>
+            <button className="header__btn" onClick={props.click}>{textContent}</button>
         </header>
     );
 }
