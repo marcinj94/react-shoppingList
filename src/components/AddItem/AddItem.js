@@ -69,22 +69,25 @@ class AddItem extends Component {
 
     render() {
 
-        return (
+        const formActive = this.props.formActive;
+
+        const content = formActive ?
             <>
+
                 <h2>Add new item</h2>
                 <form onSubmit={this.handleSubmitAddItem} noValidate>
                     <label htmlFor="name">
                         Name
-                        <input type="text" value={this.state.textInput} onChange={this.handleTextChange} />
+                <input type="text" value={this.state.textInput} onChange={this.handleTextChange} />
                         {this.state.errorMessage && <span>{this.state.errorMessage}</span>}
                     </label>
                     <label htmlFor="quantity">
                         Quantity
-                        <input type="number" min={this.minNumber} value={this.state.numberInput} onChange={this.handleNumberChange} />
+                <input type="number" min={this.minNumber} value={this.state.numberInput} onChange={this.handleNumberChange} />
                     </label>
                     <label htmlFor="important">
                         Important
-                        <input type="checkbox" checked={this.state.checkboxInput} onChange={this.handleCheckboxChange} />
+                <input type="checkbox" checked={this.state.checkboxInput} onChange={this.handleCheckboxChange} />
                     </label>
                     <button>Add to list</button>
                 </form>
@@ -92,7 +95,12 @@ class AddItem extends Component {
 
                 <hr />
             </>
+            : null;
 
+        return (
+            <>
+                {content}
+            </>
         )
     }
 }

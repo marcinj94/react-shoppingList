@@ -12,32 +12,15 @@ class App extends Component {
   idCounter = 4;
 
   state = {
-    shoppingItems: [
-      {
-        id: 0,
-        name: 'Onions',
-        quantity: 3,
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 1,
-        name: 'Fish',
-        quantity: 2,
-        important: false,
-        active: false,
-        finishDate: null,
-      },
-      {
-        id: 2,
-        name: 'Ketchup',
-        quantity: 1,
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-    ]
+    shoppingItems: [],
+    formActive: true,
+  }
+
+  showHideForm = () => {
+    console.log('show/hide');
+    this.setState({
+      formActive: !this.state.formActive,
+    })
   }
 
   addItem = (name, quantity, important) => {
@@ -90,10 +73,14 @@ class App extends Component {
 
     return (
       <>
-        <Header />
+        <Header
+          click={this.showHideForm}
+          formActive={this.state.formActive}
+        />
 
         <AddItem
           add={this.addItem}
+          formActive={this.state.formActive}
         />
 
         <div className="list">

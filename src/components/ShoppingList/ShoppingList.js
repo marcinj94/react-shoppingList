@@ -20,7 +20,13 @@ const ShoppingList = (props) => {
             </ul>
 
             <hr />
-        </div > : null;
+        </div > :
+        <div className="shopping-list">
+            <h2>Shopping list</h2>
+            <p>There are no items in your list.</p>
+
+            <hr />
+        </div >;
 
 
     return (
