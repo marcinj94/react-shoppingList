@@ -10,22 +10,18 @@ const ShoppingList = (props) => {
 
     const content = counter > 0 ?
         <div className="shopping-list">
-            <h2>Shopping list ({counter}) products</h2>
-            <ul>
+            <h2 className="shopping__title">Shopping list ({counter})</h2>
+            <ul >
                 <ShoppingItem
                     shoppingItems={props.shoppingItems}
                     delete={props.delete}
                     move={props.move}
                 />
             </ul>
-
-            <hr />
         </div > :
         <div className="shopping-list">
-            <h2>Shopping list</h2>
+            <h2 className="shopping__title">Shopping list</h2>
             <p>There are no items in your list.</p>
-
-            <hr />
         </div >;
 
 

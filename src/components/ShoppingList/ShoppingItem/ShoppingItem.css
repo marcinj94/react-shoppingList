@@ -1,7 +1,19 @@
 li {
-    margin: 10px 50px;
+    margin: 20px 5px 10px 5px;
     text-align: center;
-    border: 2px solid black;
+    list-style-type: none;
+    position: relative;
+}
+
+li:after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+
 }
 
 .important {
@@ -12,23 +24,30 @@ li {
 }
 
 .important::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    width: 30%;
-    left: 10%;
-    height: 1px;
-    background-color: rgba(128, 128, 128, 0.2);
+    content: '!! ';
 }
 
 .important::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    width: 30%;
-    right: 10%;
-    height: 1px;
-    background-color: rgba(128, 128, 128, 0.2);
+    content: ' !!';
+}
+
+
+button {
+    text-transform: uppercase;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 15px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+@media(min-width: 1024px) {
+    button:hover {
+        background-color: #fff;
+        color: #20232A;
+    }
 }

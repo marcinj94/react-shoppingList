@@ -11,9 +11,8 @@ const BagItem = (props) => {
         if (!shoppingItem.active) {
             return (
                 <li key={shoppingItem.id}>
-                    <h3>{shoppingItem.name}</h3>
-                    <p>Quantity: {shoppingItem.quantity}</p>
-                    <p>Bought: {finishDate}</p>
+                    <h3>{shoppingItem.name} x{shoppingItem.quantity}</h3>
+                    <p>{finishDate}</p>
                     <button onClick={props.delete.bind(this, shoppingItem.id)}>Delete</button>
                 </li>
             )

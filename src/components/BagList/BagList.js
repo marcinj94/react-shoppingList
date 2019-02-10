@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BagItem from './BagItem/BagItem';
+import './BagList.css';
 
 const BagList = (props) => {
 
@@ -9,15 +10,13 @@ const BagList = (props) => {
 
     const content = counter > 0 ?
         <div className="bag-list">
-            <h2>Bag list ({counter}) products</h2>
+            <h2 className="bag__title">Bag list ({counter})</h2>
             <ul>
                 <BagItem
                     shoppingItems={props.shoppingItems}
                     delete={props.delete}
                 />
             </ul>
-
-            <hr />
         </div > : null;
 
 
