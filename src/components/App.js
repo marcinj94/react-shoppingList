@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   showHideForm = () => {
-    console.log('show/hide');
     this.setState({
       formActive: !this.state.formActive,
     })
@@ -32,7 +31,6 @@ class App extends Component {
       active: true,
       finishDate: null,
     }
-    console.log(item);
 
     this.setState(prevState => ({
       shoppingItems: [...prevState.shoppingItems, item]
@@ -44,11 +42,10 @@ class App extends Component {
 
   deleteItem = (id) => {
     const shoppingItems = [...this.state.shoppingItems];
-    console.log(shoppingItems);
 
     const index = shoppingItems.findIndex(shoppingItem => shoppingItem.id === id);
     shoppingItems.splice(index, 1);
-    console.log(shoppingItems);
+
     this.setState({
       shoppingItems
     })

@@ -32,7 +32,6 @@ class AddItem extends Component {
 
     handleSubmitAddItem = (e) => {
         e.preventDefault();
-        console.log('Added item');
 
         const { textInput, numberInput, checkboxInput } = this.state;
 
