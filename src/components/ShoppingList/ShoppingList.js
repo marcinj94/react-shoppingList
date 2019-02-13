@@ -6,7 +6,6 @@ import ShoppingItem from './ShoppingItem/ShoppingItem';
 const ShoppingList = (props) => {
 
     const counter = props.shoppingItems.filter(shoppingItem => shoppingItem.active).length;
-    console.log(counter);
 
     const content = counter > 0 ?
         <div className="shopping-list">
